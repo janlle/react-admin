@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col, Card, Button, Radio, Icon, Menu, Dropdown} from 'antd';
+import {Card, Icon} from 'antd';
 
 export default class Buttons extends React.Component {
 
@@ -11,27 +11,15 @@ export default class Buttons extends React.Component {
             other: ["lock", "unlock", "area-chart", "pie-chart", "bar-chart", "dot-chart", "bars", "book", "calendar", "cloud", "cloud-download", "code", "code-o", "copy", "credit-card", "delete", "desktop", "download", "edit", "ellipsis", "file", "file-text", "file-unknown", "file-pdf", "file-excel", "file-jpg", "file-ppt", "file-add", "folder", "folder-open", "folder-add", "hdd", "frown", "frown-o", "meh", "meh-o", "smile", "smile-o", "inbox", "laptop", "appstore-o", "appstore", "line-chart", "link", "mail", "mobile", "notification", "paper-clip", "picture", "poweroff", "reload", "search", "setting", "share-alt", "shopping-cart", "tablet", "tag", "tag-o", "tags", "tags-o", "to-top", "upload", "user", "video-camera", "home", "loading", "loading-3-quarters", "cloud-upload-o", "cloud-download-o", "cloud-upload", "cloud-o", "star-o", "star", "heart-o", "heart", "environment", "environment-o", "eye", "eye-o", "camera", "camera-o", "save", "team", "solution", "phone", "filter", "exception", "export", "customer-service", "qrcode", "scan", "like", "like-o", "dislike", "dislike-o", "message", "pay-circle", "pay-circle-o", "calculator", "pushpin", "pushpin-o", "bulb", "select", "switcher", "rocket", "bell", "disconnect", "database", "compass", "barcode", "hourglass", "key", "flag", "layout", "printer", "sound", "usb", "skin", "tool", "sync", "wifi", "car", "schedule", "user-add", "user-delete", "usergroup-add", "usergroup-delete", "man", "woman", "shop", "gift", "idcard", "medicine-box", "red-envelope", "coffee", "copyright", "trademark", "safety", "wallet", "bank", "trophy", "contacts", "global", "shake", "api"]
         };
 
-        const iconList = Object.keys(icons).map(v => icons[v].map((icon, i) =>
-            <li key={i}>
-                <Icon type={icon} style={{fontSize: 15}}/>
-                <span>{icon}</span>
-            </li>
-        ));
+        const iconList = Object.keys(icons).map(v => icons[v].map((icon, i) => (
+            <Icon type={icon} style={{fontSize: 50, margin: 15}} key={i}/>
+        )));
 
         return (
             <div>
-                <Row gutter={16}>
-                    <Col>
-                        <div>
-                            <Card>
-                                <ul>
-                                    {iconList}
-                                </ul>
-                            </Card>
-                        </div>
-                    </Col>
-                </Row>
-
+                <Card bordered={false} title="图标">
+                    {iconList}
+                </Card>
             </div>
         );
     }
