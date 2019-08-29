@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom'
 import MenuConfig from './config'
 import DocumentTitle from 'react-document-title';
-import AllComponents from '../components'
+import AllComponents from '../components/'
 import queryString from 'query-string';
 
 export default class IRouter extends React.Component {

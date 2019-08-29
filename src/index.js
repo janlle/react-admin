@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import App from './components/ui/loading';
+import * as Http from './axios'
 import * as serviceWorker from './serviceWorker';
+import {AlitaProvider, setConfig} from 'redux-alita';
+import Page from './Page'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+setConfig(Http);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(
+    <AlitaProvider>
+        <Page/>
+    </AlitaProvider>, document.getElementById('root'));
+
+
 serviceWorker.unregister();
