@@ -141,3 +141,23 @@ export const JSONP = (option) => {
         })
     });
 };
+
+
+export const gitOauthLogin = () =>
+    GET({url: `${Config.GIT_OAUTH
+            }/authorize?client_id=792cdcd244e98dcd2dee&redirect_uri=http://localhost:3006/&scope=user&state=reactAdmin`,
+    });
+export const gitOauthToken = code =>
+    POST({
+        url: `https://cors-anywhere.herokuapp.com/${Config.GIT_OAUTH}/access_token`,
+        data: {
+            client_id: '792cdcd244e98dcd2dee',
+            client_secret: '81c4ff9df390d482b7c8b214a55cf24bf1f53059',
+            redirect_uri: 'http://localhost:3006/',
+            state: 'reactAdmin',
+            code,
+        },
+    });
+
+// {headers: {Accept: 'application/json'}}
+export const gitOauthInfo = access_token => GET({ url: `${Config.GIT_USER}access_token=${access_token}` });
